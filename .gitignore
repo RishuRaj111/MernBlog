@@ -1,0 +1,87 @@
+# Node.js / Express Backend
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.pid.lock
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# dotenv environment variables file
+.env
+
+# Directory for uploaded files (e.g., Multer uploads)
+uploads/
+
+# Build directory (optional if you don't want to commit production build files)
+dist/
+build/
+
+# Coverage directory for testing
+coverage/
+
+# Sentry files
+.sentryclirc
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# IDE-specific files
+.idea/
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# MongoDB dump files
+dump/
+
+# Heroku files
+*.env.local
+Procfile
+Procfile.dev
+
+# Netlify/Vercel files
+.netlify/
+.vercel/
+
+# Frontend (React) Specific Files
+
+# React production build
+/build
+
+# Temporary React files
+/.cache
+/public/static
+
+# Generated files for React environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Testing related files (Jest, Cypress, etc.)
+/coverage
+/cypress/screenshots/
+/cypress/videos/
+/cypress/reports/
+
+# Ignore any npm package-lock or yarn.lock
+package-lock.json
+yarn.lock
