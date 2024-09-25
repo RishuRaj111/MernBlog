@@ -13,12 +13,24 @@ const fs =require('fs');
 require('dotenv').config();
 
 
-
+// const base_url = process.env.BASE_URL
 const salt =bcrypt.genSaltSync(10);
 const secret =process.env.SECRET_KEY;
-const port =process.env.PORT || 4000;
+const port = process.env.BASE_URL|| 4000;
 
-app.use(cors({credentials:true,origin:'http://localhost:3000' }));
+
+const allowedOrigins = ['http://localhost:3000', 'https://relaxed-taffy-1169b7.netlify.app'];
+
+app.use(cors({
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+}));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads',express.static(__dirname + '/uploads'));
@@ -133,7 +145,7 @@ app.get('/post/:id',async(req,res)=>{
   res.json(postDoc);
 })
 app.listen(port, () => {
-  console.log('Server running on port 4000');
+  console.log(`Server running on port ${port}`);
 });
 
 //mongodb+srv://rishuraj1479:<db_password>@cluster0.xdhdi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
